@@ -57,6 +57,16 @@ Two credentials pillars sit on top: **Skills Boost Security Operations path** (h
 
 ## 3. The plan, phased (adjust pace to your schedule)
 
+### Your enrolled Skills Boost tracks — do them in THIS order (hands-first)
+1. **Google Security Operations** — *FIRST.* The foundation: the SecOps platform, the **UDM data model**,
+   ingestion, the rule editor, running a detection. Everything else builds on this. → maps to **Phase 1**.
+2. **Google SIEM & SOAR** — *SECOND.* The craft: deeper **YARA-L** detection engineering (SIEM) + **SOAR**
+   playbooks & automation. This is what feeds your portfolio rules/playbooks. → alongside **Phase 1→2**.
+3. **Professional Security Engineer (PCSE) cert prep** — *THIRD.* Broader GCP security (IAM, network, data
+   protection, logging, compliance). Do it once the hands-on has made the concepts click; skim in parallel late,
+   **sit the exam last** — it's the résumé signal you finish with. → **Phase 3** (see §4).
+
+
 ### Phase 1 — YARA-L + SecOps fundamentals  (~2–3 weeks)
 - On **Skills Boost**, do the **Security Operations / Google SecOps (Chronicle)** courses + labs (search
   "Security Operations", "Google SecOps", "Chronicle"). Focus: UDM data model, how ingestion works, the rule
@@ -95,8 +105,12 @@ Two credentials pillars sit on top: **Skills Boost Security Operations path** (h
 - **Format (verify current details on the exam page):** ~2-hour, multiple-choice/multiple-select proctored exam,
   ~$200 USD. No hard prerequisites, but it assumes real hands-on GCP security experience — which the portfolio
   gives you.
-- **How to prep:** the **PCSE learning path on Skills Boost** (use your credits) → the official **exam guide**
-  (map every objective) → **practice exams** until you're consistently ~85%+ → schedule it.
+- **How to prep:** the **PCSE learning path on Skills Boost** (use your credits, get the hands-on) → the official
+  **exam guide** (map every objective) → **practice exams** until you're consistently ~85%+ → schedule it.
+- **Skills Boost vs Udemy:** for **Google SecOps / SIEM & SOAR**, Skills Boost wins decisively — it's first-party
+  and gives **real hands-on labs** (a live Chronicle instance) Udemy can't. For the **PCSE cert**, use Skills
+  Boost for learning **+ supplement with practice-exam sets** — **Tutorials Dojo** (and good Udemy practice-test
+  courses) are the gold standard for exam-style questions. Combo = official hands-on path + TD/Udemy practice exams.
 - **Order:** do Phase 1–2 first (hands-on makes the cert concepts click), then knock out PCSE. Don't cert-first;
   hands-first.
 
