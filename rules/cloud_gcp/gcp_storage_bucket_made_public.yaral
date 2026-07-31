@@ -1,0 +1,27 @@
+rule gcp_storage_bucket_made_public {
+  meta:
+    author         = "Scott Baker"
+    description     = "A GCS bucket IAM binding granted allUsers or allAuthenticatedUsers — potential public data exposure. High-signal cloud detection; should be rare in a well-run project (org policy should block it)."
+    severity        = "HIGH"
+    mitre_tactic    = "TA0010 Exfiltration"
+    mitre_technique = "T1567 Exfiltration Over Web Service"
+    platform        = "GCP"
+    reference       = "https://cloud.google.com/storage/docs/access-control/making-data-public"
+    yara_l_version  = "2.0"
+    status          = "learning"
+
+  events:
+    $e.metadata.event_type         = "SETTING_MODIFICATION"
+    $e.metadata.product_name        = "Google Cloud Platform"
+    $e.metadata.product_event_type  = "storage.setIamPermissions"
+    $e.target.resource.name         = $bucket
+    $e.principal.user.email_addresses = $actor
+    // the added member that makes it public
+    $e.target.resource.attribute.labels["member"] = /allUsers|allAuthenticatedUsers/
+
+  match:
+    $bucket, $actor over 1h
+
+  condition:
+    $e
+}

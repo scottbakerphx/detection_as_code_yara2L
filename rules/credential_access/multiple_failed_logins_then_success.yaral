@@ -1,0 +1,30 @@
+rule multiple_failed_logins_then_success {
+  meta:
+    author         = "Scott Baker"
+    description     = "Many failed logins for a user from one source IP followed by a success in the same window — likely brute-force / password-spray that eventually worked."
+    severity        = "HIGH"
+    mitre_tactic    = "TA0006 Credential Access"
+    mitre_technique = "T1110 Brute Force"
+    reference       = "https://attack.mitre.org/techniques/T1110/"
+    yara_l_version  = "2.0"
+    status          = "learning"   // validate + tune thresholds against real data before production
+
+  events:
+    // failed logins
+    $fail.metadata.event_type      = "USER_LOGIN"
+    $fail.security_result.action    = "BLOCK"
+    $fail.principal.ip              = $ip
+    $fail.target.user.userid        = $user
+
+    // a success, same user + same source IP
+    $ok.metadata.event_type         = "USER_LOGIN"
+    $ok.security_result.action      = "ALLOW"
+    $ok.principal.ip                = $ip
+    $ok.target.user.userid          = $user
+
+  match:
+    $ip, $user over 10m
+
+  condition:
+    #fail >= 10 and $ok
+}

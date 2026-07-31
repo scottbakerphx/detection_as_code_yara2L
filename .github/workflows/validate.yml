@@ -1,0 +1,14 @@
+# Detection-as-code CI: every rule must be well-formed + fully documented before it merges.
+name: validate-rules
+on:
+  push: { branches: [main] }
+  pull_request: {}
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Lint YARA-L rule metadata + structure
+        run: python scripts/lint_rules.py rules

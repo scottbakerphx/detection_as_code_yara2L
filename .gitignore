@@ -1,0 +1,8 @@
+# local scratch / exports / secrets — never commit real logs or credentials
+*.local
+*.log
+*.env
+.env
+__pycache__/
+data/private/
+exports/
