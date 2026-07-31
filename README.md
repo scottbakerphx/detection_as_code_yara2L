@@ -14,15 +14,22 @@ to be validated/tuned in a real Google SecOps instance or a Skills Boost lab.
 Certs prove you studied; **detections in git prove you can do the work.** Hiring managers for detection-engineer
 / SecOps roles want to see real rules, sound metadata, and clear reasoning — that's what lives here.
 
+## 👉 Start here: [`STUDY_GUIDE.md`](STUDY_GUIDE.md)
+The complete step-by-step plan — how to use all of this **together with the Google Cloud Skills Boost SecOps
+path + the PCSE cert**, all on **free** tooling.
+
 ## Layout
 ```
 rules/
   credential_access/   persistence/   execution/   exfiltration/     # by MITRE ATT&CK tactic
   cloud_gcp/   cloud_aws/                                            # by cloud platform
-docs/     writeups + a YARA-L primer + how to test rules
-data/     sample UDM events to validate rules against
-.github/workflows/   CI that lints/validates rules (detection-as-code = tested in git)
+bigquery/     the SAME detections as scalable SQL over Cloud Audit Logs (security data engineering track)
+docs/         writeups + a YARA-L primer + where/how to run rules
+data/         sample UDM events to validate rules against
+.github/workflows/   CI that lints rule metadata + structure (detection-as-code = tested in git)
 ```
+Companion repo: **[`vscode-yara-l`](https://github.com/scottbakerphx/vscode-yara-l)** — YARA-L 2.0 syntax
+highlighting for VS Code.
 
 ## YARA-L 2.0 in 30 seconds
 A YARA-L rule matches over Google SecOps **UDM** (Unified Data Model) events:
